@@ -1,130 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MFAS BALIK ALINDOG PROGRAM (BAP)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SG Daily Rate & Premium Estimator</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f8ff;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-
-    h1 {
+      font-family: Arial, sans-serif;
       text-align: center;
-      color: #0c3c78;
+      margin: 40px;
+      background: url('MARINALOGO.png') no-repeat center center fixed;
+      background-size: 300px;
+      background-color: #ffffff;
     }
-
-    .pot-money {
-      text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .leaderboard {
-      max-width: 700px;
-      margin: 0 auto;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    .leaderboard th, .leaderboard td {
-      border: 1px solid #ccc;
+    select, button {
       padding: 10px;
-      text-align: center;
+      font-size: 1rem;
     }
-
-    .leaderboard th {
-      background-color: #004aad;
-      color: white;
-    }
-
-    .leaderboard tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    .highlight {
-      background-color: gold;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #777;
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #800000; /* maroon */
     }
   </style>
 </head>
 <body>
 
-  <h1>🏋️ MFAS BALIK ALINDOG PROGRAM (BAP) 🏋️</h1>
-  <div class="pot-money">💰 Current Pot Money: <span id="pot">₱9,290</span></div>
+  <h1>Salary Grade Daily Rate & Premium Estimator</h1>
+  <label for="sg">Choose your Salary Grade (SG): </label>
+  <select id="sg">
+    <option value="">-- Select SG --</option>
+    <script>
+      for (let i = 1; i <= 33; i++) {
+        document.write(`<option value="${i}">SG ${i}</option>`);
+      }
+    </script>
+  </select>
+  <button onclick="calculate()">Calculate</button>
 
-  <table class="leaderboard" id="leaderboard">
-    <thead>
-      <tr>
-        <th>🏅 Rank</th>
-        <th>Participant #</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Will be filled by JS -->
-    </tbody>
-  </table>
-
-  <footer>Keep pushing! 💪 The road to fitness is a journey, and you're all winners!</footer>
+  <div class="result" id="output"></div>
 
   <script>
-    const participants = [
-      { number: 1, points: 22.73333333 },
-      { number: 2, points: 23 },
-      { number: 3, points: 24 },
-      { number: 4, points: 30 },
-      { number: 5, points: 23 },
-      { number: 6, points: 24 },
-      { number: 7, points: 30 },
-      { number: 8, points: 23 },
-      { number: 9, points: 23 },
-      { number: 10, points: 23 },
-      { number: 11, points: 23 },
-      { number: 12, points: 23 },
-      { number: 13, points: 23 },
-      { number: 14, points: 23 },
-      { number: 15, points: 23 },
-      { number: 16, points: 23 },
-      { number: 17, points: 23 },
-      { number: 18, points: 23 },
-      { number: 19, points: 23 },
-      { number: 20, points: 23 },
-      { number: 21, points: 30 },
-      { number: 22, points: 50 },
-      { number: 23, points: 50 },
-      { number: 24, points: 50 },
-      { number: 25, points: 40 },
-      { number: 26, points: 40 },
-      { number: 27, points: 30 }
-    ];
+    const data = {
+      1: { daily: 669.57, premium: 33746.40 },
+      2: { daily: 710.71, premium: 35820.00 },
+      3: { daily: 754.86, premium: 38044.80 },
+      4: { daily: 801.57, premium: 40399.20 },
+      5: { daily: 850.76, premium: 42878.40 },
+      6: { daily: 902.71, premium: 45496.80 },
+      7: { daily: 957.62, premium: 48264.00 },
+      8: { daily: 1021.33, premium: 51475.20 },
+      9: { daily: 1106.00, premium: 55742.40 },
+      10: { daily: 1218.38, premium: 61406.40 },
+      11: { daily: 1429.71, premium: 72057.60 },
+      12: { daily: 1535.48, premium: 77388.00 },
+      13: { daily: 1658.43, premium: 83584.80 },
+      14: { daily: 1763.05, premium: 88857.60 },
+      15: { daily: 1914.67, premium: 96499.20 },
+      16: { daily: 2074.29, premium: 104544.00 },
+      17: { daily: 2249.86, premium: 113392.80 },
+      18: { daily: 2443.05, premium: 123129.60 },
+      19: { daily: 2685.24, premium: 135336.00 },
+      20: { daily: 2998.43, premium: 151120.80 },
+      21: { daily: 3333.95, premium: 168031.20 },
+      22: { daily: 3722.00, premium: 187588.80 },
+      23: { daily: 4157.86, premium: 209556.00 },
+      24: { daily: 4675.48, premium: 235644.00 },
+      25: { daily: 5320.33, premium: 268144.80 },
+      26: { daily: 6012.00, premium: 303004.80 },
+      27: { daily: 6793.48, premium: 342391.20 },
+      28: { daily: 7641.38, premium: 385125.60 },
+      29: { daily: 8594.86, premium: 433180.80 },
+      30: { daily: 9676.19, premium: 487680.00 },
+      31: { daily: 13961.48, premium: 703658.40 },
+      32: { daily: 16566.10, premium: 834931.20 },
+      33: { daily: 20897.33, premium: 1053225.60 }
+    };
 
-    const sorted = participants.sort((a, b) => b.points - a.points);
-    const tbody = document.querySelector('#leaderboard tbody');
+    function calculate() {
+      const sg = document.getElementById("sg").value;
+      const output = document.getElementById("output");
 
-    sorted.forEach((p, index) => {
-      const tr = document.createElement('tr');
-      if (index === 0) tr.classList.add('highlight');
+      if (!sg || !data[sg]) {
+        output.innerHTML = "Please select a valid SG number.";
+        return;
+      }
 
-      tr.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${p.number}</td>
-        <td>${p.points}</td>
-      `;
-      tbody.appendChild(tr);
-    });
+      const rate = data[sg];
+      output.innerHTML = `Daily Rate: \u20B1${rate.daily.toFixed(2)}<br>
+                          Estimated Max Premium: \u20B1${rate.premium.toFixed(2)}`;
+    }
   </script>
 
 </body>
