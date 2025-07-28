@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="MARINALOGO.png">
-  <title>SG Daily Rate & Premium Estimator</title>
+  <title>SG Daily Rate Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-  <h1>Salary Grade Daily Rate & Premium Estimator</h1>
+  <h1>Salary Grade Daily Rate Calculator</h1>
   <label for="sg">Choose your Salary Grade (SG): </label>
   <select id="sg">
     <option value="">-- Select SG --</option>
@@ -43,39 +43,39 @@
 
   <script>
     const data = {
-      1: { daily: 669.57, premium: 33746.40 },
-      2: { daily: 710.71, premium: 35820.00 },
-      3: { daily: 754.86, premium: 38044.80 },
-      4: { daily: 801.57, premium: 40399.20 },
-      5: { daily: 850.76, premium: 42878.40 },
-      6: { daily: 902.71, premium: 45496.80 },
-      7: { daily: 957.62, premium: 48264.00 },
-      8: { daily: 1021.33, premium: 51475.20 },
-      9: { daily: 1106.00, premium: 55742.40 },
-      10: { daily: 1218.38, premium: 61406.40 },
-      11: { daily: 1429.71, premium: 72057.60 },
-      12: { daily: 1535.48, premium: 77388.00 },
-      13: { daily: 1658.43, premium: 83584.80 },
-      14: { daily: 1763.05, premium: 88857.60 },
-      15: { daily: 1914.67, premium: 96499.20 },
-      16: { daily: 2074.29, premium: 104544.00 },
-      17: { daily: 2249.86, premium: 113392.80 },
-      18: { daily: 2443.05, premium: 123129.60 },
-      19: { daily: 2685.24, premium: 135336.00 },
-      20: { daily: 2998.43, premium: 151120.80 },
-      21: { daily: 3333.95, premium: 168031.20 },
-      22: { daily: 3722.00, premium: 187588.80 },
-      23: { daily: 4157.86, premium: 209556.00 },
-      24: { daily: 4675.48, premium: 235644.00 },
-      25: { daily: 5320.33, premium: 268144.80 },
-      26: { daily: 6012.00, premium: 303004.80 },
-      27: { daily: 6793.48, premium: 342391.20 },
-      28: { daily: 7641.38, premium: 385125.60 },
-      29: { daily: 8594.86, premium: 433180.80 },
-      30: { daily: 9676.19, premium: 487680.00 },
-      31: { daily: 13961.48, premium: 703658.40 },
-      32: { daily: 16566.10, premium: 834931.20 },
-      33: { daily: 20897.33, premium: 1053225.60 }
+      1: { daily: 669.57 },
+      2: { daily: 710.71 },
+      3: { daily: 754.86 },
+      4: { daily: 801.57 },
+      5: { daily: 850.76 },
+      6: { daily: 902.71 },
+      7: { daily: 957.62 },
+      8: { daily: 1021.33 },
+      9: { daily: 1106.00 },
+      10: { daily: 1218.38 },
+      11: { daily: 1429.71 },
+      12: { daily: 1535.48 },
+      13: { daily: 1658.43 },
+      14: { daily: 1763.05 },
+      15: { daily: 1914.67 },
+      16: { daily: 2074.29 },
+      17: { daily: 2249.86 },
+      18: { daily: 2443.05 },
+      19: { daily: 2685.24 },
+      20: { daily: 2998.43 },
+      21: { daily: 3333.95 },
+      22: { daily: 3722.00 },
+      23: { daily: 4157.86 },
+      24: { daily: 4675.48 },
+      25: { daily: 5320.33 },
+      26: { daily: 6012.00 },
+      27: { daily: 6793.48 },
+      28: { daily: 7641.38 },
+      29: { daily: 8594.86 },
+      30: { daily: 9676.19 },
+      31: { daily: 13961.48 },
+      32: { daily: 16566.10 },
+      33: { daily: 20897.33 }
     };
 
     function calculate() {
